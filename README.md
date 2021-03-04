@@ -45,4 +45,4 @@ python run.py
 ![GitHub Logo](/images/addword.png)
 
 
-# AskMeOwl
+# Copyright &copy; Abdul Wahab
