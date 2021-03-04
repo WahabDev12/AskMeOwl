@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">   
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <!-- <script defer src="{{ url_for('static',filename='main.js') }}"></script> -->
+    <title>Ask Me</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages%}
+    <div class="flash" style="width:100vw;text-align:center;">
+    <h5 class="alert">{{message}}</h5>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <div class="container">
+        <div class="input-container">
+            <div class="input-title">
+                <h2>Ask Me Owl</h2>
+                <img src="{{ url_for('static',filename='owl1.png') }}">
+            </div>
+            <form method="POST"  class="form-container" id="form" action="/match">
+			{{ form.hidden_tag() }}
+			{{form.word(class="text", id="text",placeholder="Search a word", autocomplete="off")}} 
+            <button type="submit" class="btn" id="myBtn"><i class="fa fa-search"></i></button>
+        </form>
+        </div>
+        <br>
+        <br>    
+        <div class="display-results">
+            <!-- <a href="/convert" method="POST"><i class="fas fa-microphone"></i></a> -->
+            <div class="word-details">
+				<h3 style="text-transform:capitalize; font-size:30px;">{{meaning}}</h3>
+                <br>
+				<ol>
+				{%for item in output%}
+				<li>{{item}}</li>
+				{% endfor %}
+				
+				</ol>
+		
+				</div>
+            </div>
+        </div>
+    </div>
+    {% if item in output == -1 %}
+     <h2>Sorry No results</h2>
+    {%endif%}
+</body>
+</html>
+
+
+
+
+
+
+
+

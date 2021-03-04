@@ -1,0 +1,69 @@
+{%block content%}
+<title>Ask Me | Error</title>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">   
+<link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+<script src="{{ url_for('static',filename='main.js') }}"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+<div class="container">
+
+  <div class="input-container">
+    <div class="input-title">
+        <h2>Ask Me Owl</h2>
+        <img src="{{ url_for('static',filename='owl1.png') }}">
+    </div>
+    <!--Add an action for search-->
+    <form method="POST"  class="form-container" id="form" action="/match">
+			{{form.word(class="text", id="text",placeholder="Search Word...")}} 
+    <button style="height:37px;" type="submit" class="btn" id="myBtn"><i class="fa fa-search"></i></button>
+</form>
+</div>
+<br>
+<h2 style="text-align: center; font-weight:400;font-family:sans-serif;">Sorry, we could not find results for <i><u>{{word}}</u></i></h2>
+<br>
+<div class="custom-error">
+<img class="emoji" src="{{ url_for('static',filename='error.png') }}">
+</div>
+<br>
+<br>
+<!--Modal Code-->
+<div class="content">
+	<div class="modal-link">
+		<span class="modal-button">Add Word</span>
+		<input type="checkbox" class="modal-launcher">
+		<div class="modal-window">
+      <form action="/add" method="POST" class="add-word">
+			<h2>Add Word to Dictionary</h2>
+      <br>
+  
+      <label style="text-align: initial;">Word</label>  
+      <br>
+      <input value="{{name}}" name="word" placeholder="Type word..." type="text">
+      <br>
+      <br>
+      <label>Description</label>
+      <br>
+      <input  name="description" autocomplete="off" placeholder="Enter description" type="text">
+      <br>
+      <br>
+      <br>
+      <button type="submit" class="addBtn" style="width:100px;" class="btn" id="">Add word</button>
+
+    </form>	
+   
+		</div>
+		<div class="modal-overlay"></div>
+	</div>
+</div>
+</div>
+
+<h3>{{meaning}}</h3>
+
+		<ol>
+
+		{%for item in display%}
+		<li>{{item}}</li>
+		{% endfor %}
+		
+	    </ol>
+
+{% endblock content %}
