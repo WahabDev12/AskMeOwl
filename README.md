@@ -3,6 +3,8 @@
 ### A simple dictionary where users can search for the meaning to words and also add their own words
 
 ## Installation
+
+##Clone this repo
 ```
 git clone https://github.com/WahabDev12/AskMeOwl.git
 
