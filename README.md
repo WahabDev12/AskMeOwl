@@ -15,6 +15,7 @@ cd AskMeOwl
 ```
 ## Install and activate virtual environment
 ```
+pip install pipenv
 pipenv shell
 
 ```
