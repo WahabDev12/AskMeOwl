@@ -33,14 +33,12 @@ python run.py
 
 # Screenshots
 
-
-## Homepage
-![GitHub Logo](/images/homepage.png)
-
-
 ## Results for word
 ![GitHub Logo](/images/result.png)
 
+
+## Homepage
+![GitHub Logo](/images/homepage.png)
 
 
 ## Adding a new word to dictionary
